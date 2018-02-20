@@ -1,0 +1,82 @@
+{
+    "authorization": {
+        "action": "Microsoft.Compute/virtualMachines/start/action",
+        "scope": "/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Compute/virtualMachines/SCCM-VM1"
+    },
+    "caller": "piyushkar93@outlook.com",
+    "channels": "Operation",
+    "claims": {
+        "aud": "https://management.core.windows.net/",
+        "iss": "https://sts.windows.net/0bf68faf-c94c-49dd-be2a-77ecd282d234/",
+        "iat": "1519112061",
+        "nbf": "1519112061",
+        "exp": "1519115961",
+        "http://schemas.microsoft.com/claims/authnclassreference": "1",
+        "aio": "Y2NgYFh75JTi+maO+kM7o6x/ZARPCVH0FYkokLEM2fzIPKwmYBsA",
+        "altsecid": "1:live.com:0003BFFD04C0AD6B",
+        "http://schemas.microsoft.com/claims/authnmethodsreferences": "pwd",
+        "appid": "c44b4083-3bb0-49c1-b47d-974e53cbdf3c",
+        "appidacr": "2",
+        "e_exp": "262800",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress": "piyushkar93@outlook.com",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname": "Kar",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname": "Piyush",
+        "groups": "217f5aba-3591-415b-ab47-a9a007f1988d",
+        "http://schemas.microsoft.com/identity/claims/identityprovider": "live.com",
+        "ipaddr": "141.127.2.2",
+        "name": "Piyush Kar",
+        "http://schemas.microsoft.com/identity/claims/objectidentifier": "46b502f5-2d0d-44b5-88ca-abb31ec1f2e8",
+        "puid": "1003BFFDA88CE9C9",
+        "http://schemas.microsoft.com/identity/claims/scope": "user_impersonation",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier": "oTs5krKtio7fWJlX_Y5a4yg0TlISFrENAJSHSEH8C-I",
+        "http://schemas.microsoft.com/identity/claims/tenantid": "0bf68faf-c94c-49dd-be2a-77ecd282d234",
+        "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name": "live.com#piyushkar93@outlook.com",
+        "uti": "WUZhOjerBUqzGZHKlpopAA",
+        "ver": "1.0",
+        "wids": "62e90394-69f5-4237-9190-012177145e10"
+    },
+    "correlationId": "8983631a-525c-4001-81ba-cdff3a2ff648",
+    "description": "",
+    "eventDataId": "67855271-4eed-4e7a-b4dd-69e41ad93bef",
+    "eventName": {
+        "value": "EndRequest",
+        "localizedValue": "End request"
+    },
+    "category": {
+        "value": "Administrative",
+        "localizedValue": "Administrative"
+    },
+    "eventTimestamp": "2018-02-20T07:40:07.4721881Z",
+    "id": "/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Compute/virtualMachines/SCCM-VM1/events/67855271-4eed-4e7a-b4dd-69e41ad93bef/ticks/636547092074721881",
+    "level": "Informational",
+    "operationId": "8983631a-525c-4001-81ba-cdff3a2ff648",
+    "operationName": {
+        "value": "Microsoft.Compute/virtualMachines/start/action",
+        "localizedValue": "Microsoft.Compute/virtualMachines/start/action"
+    },
+    "resourceGroupName": "SCCM",
+    "resourceProviderName": {
+        "value": "Microsoft.Compute",
+        "localizedValue": "Microsoft.Compute"
+    },
+    "resourceType": {
+        "value": "Microsoft.Compute/virtualMachines",
+        "localizedValue": "Microsoft.Compute/virtualMachines"
+    },
+    "resourceId": "/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Compute/virtualMachines/SCCM-VM1",
+    "status": {
+        "value": "Accepted",
+        "localizedValue": "Accepted"
+    },
+    "subStatus": {
+        "value": "Accepted",
+        "localizedValue": "Accepted (HTTP Status Code: 202)"
+    },
+    "submissionTimestamp": "2018-02-20T07:40:20.0527241Z",
+    "subscriptionId": "734372bd-5c2b-4753-aaf9-487b6fedccb2",
+    "properties": {
+        "statusCode": "Accepted",
+        "serviceRequestId": "5762b24a-16ce-4a35-9ae3-ec23780da76e"
+    },
+    "relatedEvents": []
+}

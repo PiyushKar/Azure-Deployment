@@ -1,0 +1,1182 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "servers_sql1_db_name": {
+            "defaultValue": "sql1-db",
+            "type": "String"
+        },
+        "servers_sql1_db1_name": {
+            "defaultValue": "sql1-db1",
+            "type": "String"
+        },
+        "virtualMachines_SCCM_VM1_name": {
+            "defaultValue": "SCCM-VM1",
+            "type": "String"
+        },
+        "virtualNetworks_SCCM_vnet_name": {
+            "defaultValue": "SCCM-vnet",
+            "type": "String"
+        },
+        "databases_master_name": {
+            "defaultValue": "master",
+            "type": "String"
+        },
+        "networkInterfaces_sccm_vm1833_name": {
+            "defaultValue": "sccm-vm1833",
+            "type": "String"
+        },
+        "publicIPAddresses_SCCM_VM1_ip_name": {
+            "defaultValue": "SCCM-VM1-ip",
+            "type": "String"
+        },
+        "databases_master_name_1": {
+            "defaultValue": "master",
+            "type": "String"
+        },
+        "databases_SQL_DB1_name": {
+            "defaultValue": "SQL-DB1",
+            "type": "String"
+        },
+        "keys_ServiceManaged_name": {
+            "defaultValue": "ServiceManaged",
+            "type": "String"
+        },
+        "keys_ServiceManaged_name_1": {
+            "defaultValue": "ServiceManaged",
+            "type": "String"
+        },
+        "networkSecurityGroups_SCCM_VM1_nsg_name": {
+            "defaultValue": "SCCM-VM1-nsg",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "encryptionProtector_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "encryptionProtector_current_name_1": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "subnets_default_name": {
+            "defaultValue": "default",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name": {
+            "defaultValue": "AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "advisors_DropIndex_name": {
+            "defaultValue": "DropIndex",
+            "type": "String"
+        },
+        "firewallRules_AllowAllWindowsAzureIps_name_1": {
+            "defaultValue": "AllowAllWindowsAzureIps",
+            "type": "String"
+        },
+        "advisors_CreateIndex_name": {
+            "defaultValue": "CreateIndex",
+            "type": "String"
+        },
+        "securityRules_FTP_name": {
+            "defaultValue": "FTP",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_3": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "securityRules_FTPout_name": {
+            "defaultValue": "FTPout",
+            "type": "String"
+        },
+        "auditingPolicies_Default_name_4": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "geoBackupPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "backupLongTermRetentionVaults_RegisteredVault_name": {
+            "defaultValue": "RegisteredVault",
+            "type": "String"
+        },
+        "advisors_ForceLastGoodPlan_name": {
+            "defaultValue": "ForceLastGoodPlan",
+            "type": "String"
+        },
+        "backupLongTermRetentionVaults_RegisteredVault_name_1": {
+            "defaultValue": "RegisteredVault",
+            "type": "String"
+        },
+        "advisors_DbParameterization_name": {
+            "defaultValue": "DbParameterization",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name_1": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "transparentDataEncryption_current_name_2": {
+            "defaultValue": "current",
+            "type": "String"
+        },
+        "securityRules_default_allow_rdp_name": {
+            "defaultValue": "default-allow-rdp",
+            "type": "String"
+        },
+        "backupLongTermRetentionPolicies_Default_name": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "backupLongTermRetentionPolicies_Default_name_1": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "backupLongTermRetentionPolicies_Default_name_2": {
+            "defaultValue": "Default",
+            "type": "String"
+        },
+        "virtualMachines_SCCM_VM1_id": {
+            "defaultValue": "/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Compute/disks/SCCM-VM1_OsDisk_1_2bd195a1616144ae904de267cce5637c",
+            "type": "String"
+        }
+    },
+    "variables": {},
+    "resources": [
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Compute/virtualMachines/SCCM-VM1'.",
+            "type": "Microsoft.Compute/virtualMachines",
+            "name": "[parameters('virtualMachines_SCCM_VM1_name')]",
+            "apiVersion": "2017-03-30",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "hardwareProfile": {
+                    "vmSize": "Standard_A4m_v2"
+                },
+                "storageProfile": {
+                    "imageReference": {
+                        "publisher": "MicrosoftWindowsServer",
+                        "offer": "WindowsServer",
+                        "sku": "2016-Datacenter",
+                        "version": "latest"
+                    },
+                    "osDisk": {
+                        "osType": "Windows",
+                        "name": "[concat(parameters('virtualMachines_SCCM_VM1_name'),'_OsDisk_1_2bd195a1616144ae904de267cce5637c')]",
+                        "createOption": "FromImage",
+                        "caching": "ReadWrite",
+                        "managedDisk": {
+                            "id": "[parameters('virtualMachines_SCCM_VM1_id')]"
+                        }
+                    },
+                    "dataDisks": []
+                },
+                "osProfile": {
+                    "computerName": "[parameters('virtualMachines_SCCM_VM1_name')]",
+                    "adminUsername": "SCCM Admin",
+                    "windowsConfiguration": {
+                        "provisionVMAgent": true,
+                        "enableAutomaticUpdates": true
+                    },
+                    "secrets": []
+                },
+                "networkProfile": {
+                    "networkInterfaces": [
+                        {
+                            "id": "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sccm_vm1833_name'))]"
+                        }
+                    ]
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkInterfaces', parameters('networkInterfaces_sccm_vm1833_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/networkInterfaces/sccm-vm1833'.",
+            "type": "Microsoft.Network/networkInterfaces",
+            "name": "[parameters('networkInterfaces_sccm_vm1833_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "ab552b23-b506-48a6-81a8-b003dc704658",
+                "ipConfigurations": [
+                    {
+                        "name": "ipconfig1",
+                        "etag": "W/\"cfc1379b-4a98-4fa4-87d3-997ad128377f\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "privateIPAddress": "10.0.16.4",
+                            "privateIPAllocationMethod": "Dynamic",
+                            "publicIPAddress": {
+                                "id": "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SCCM_VM1_ip_name'))]"
+                            },
+                            "subnet": {
+                                "id": "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_SCCM_vnet_name'), parameters('subnets_default_name'))]"
+                            },
+                            "primary": true,
+                            "privateIPAddressVersion": "IPv4"
+                        }
+                    }
+                ],
+                "dnsSettings": {
+                    "dnsServers": [],
+                    "appliedDnsServers": []
+                },
+                "enableAcceleratedNetworking": false,
+                "enableIPForwarding": false,
+                "networkSecurityGroup": {
+                    "id": "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SCCM_VM1_nsg_name'))]"
+                },
+                "primary": true,
+                "virtualMachine": {
+                    "id": "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_SCCM_VM1_name'))]"
+                }
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/publicIPAddresses', parameters('publicIPAddresses_SCCM_VM1_ip_name'))]",
+                "[resourceId('Microsoft.Network/virtualNetworks/subnets', parameters('virtualNetworks_SCCM_vnet_name'), parameters('subnets_default_name'))]",
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SCCM_VM1_nsg_name'))]",
+                "[resourceId('Microsoft.Compute/virtualMachines', parameters('virtualMachines_SCCM_VM1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/networkSecurityGroups/SCCM-VM1-nsg'.",
+            "type": "Microsoft.Network/networkSecurityGroups",
+            "name": "[parameters('networkSecurityGroups_SCCM_VM1_nsg_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "e45035bf-6301-4181-abdb-f854cf3a5246",
+                "securityRules": [
+                    {
+                        "name": "default-allow-rdp",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "3389",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "FTP",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "21",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 1010,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "FTPout",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "protocol": "TCP",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "21",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 100,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ],
+                "defaultSecurityRules": [
+                    {
+                        "name": "AllowVnetInBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowAzureLoadBalancerInBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow inbound traffic from azure load balancer",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "AzureLoadBalancer",
+                            "destinationAddressPrefix": "*",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllInBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all inbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Inbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowVnetOutBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to all VMs in VNET",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "VirtualNetwork",
+                            "destinationAddressPrefix": "VirtualNetwork",
+                            "access": "Allow",
+                            "priority": 65000,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "AllowInternetOutBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Allow outbound traffic from all VMs to Internet",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "Internet",
+                            "access": "Allow",
+                            "priority": 65001,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    },
+                    {
+                        "name": "DenyAllOutBound",
+                        "etag": "W/\"15b72348-f995-47e1-bd03-d833664b2696\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "description": "Deny all outbound traffic",
+                            "protocol": "*",
+                            "sourcePortRange": "*",
+                            "destinationPortRange": "*",
+                            "sourceAddressPrefix": "*",
+                            "destinationAddressPrefix": "*",
+                            "access": "Deny",
+                            "priority": 65500,
+                            "direction": "Outbound",
+                            "sourcePortRanges": [],
+                            "destinationPortRanges": [],
+                            "sourceAddressPrefixes": [],
+                            "destinationAddressPrefixes": []
+                        }
+                    }
+                ]
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/publicIPAddresses/SCCM-VM1-ip'.",
+            "type": "Microsoft.Network/publicIPAddresses",
+            "sku": {
+                "name": "Basic"
+            },
+            "name": "[parameters('publicIPAddresses_SCCM_VM1_ip_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "914ead10-e94d-4c7c-ba16-4c7e2f88d679",
+                "publicIPAddressVersion": "IPv4",
+                "publicIPAllocationMethod": "Dynamic",
+                "idleTimeoutInMinutes": 4,
+                "dnsSettings": {
+                    "domainNameLabel": "sccm-vm1",
+                    "fqdn": "sccm-vm1.westus.cloudapp.azure.com"
+                }
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/virtualNetworks/SCCM-vnet'.",
+            "type": "Microsoft.Network/virtualNetworks",
+            "name": "[parameters('virtualNetworks_SCCM_vnet_name')]",
+            "apiVersion": "2017-10-01",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "resourceGuid": "96e22ace-39fa-43b8-be07-57c0ae1c4de4",
+                "addressSpace": {
+                    "addressPrefixes": [
+                        "10.0.16.0/24"
+                    ]
+                },
+                "dhcpOptions": {
+                    "dnsServers": [
+                        "8.8.8.8"
+                    ]
+                },
+                "subnets": [
+                    {
+                        "name": "default",
+                        "etag": "W/\"d599159c-8b3c-40d1-b070-c67a79f27907\"",
+                        "properties": {
+                            "provisioningState": "Succeeded",
+                            "addressPrefix": "10.0.16.0/24",
+                            "serviceEndpoints": []
+                        }
+                    }
+                ],
+                "virtualNetworkPeerings": [],
+                "enableDdosProtection": false,
+                "enableVmProtection": false
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_sql1_db_name')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "eastus",
+            "scale": null,
+            "properties": {
+                "administratorLogin": "DBAdmin",
+                "version": "12.0"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1'.",
+            "type": "Microsoft.Sql/servers",
+            "kind": "v12.0",
+            "name": "[parameters('servers_sql1_db1_name')]",
+            "apiVersion": "2015-05-01-preview",
+            "location": "westus",
+            "scale": null,
+            "properties": {
+                "administratorLogin": "sqladmin",
+                "version": "12.0"
+            },
+            "dependsOn": []
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/networkSecurityGroups/SCCM-VM1-nsg/securityRules/default-allow-rdp'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_SCCM_VM1_nsg_name'), '/', parameters('securityRules_default_allow_rdp_name'))]",
+            "apiVersion": "2017-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "3389",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1000,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SCCM_VM1_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/networkSecurityGroups/SCCM-VM1-nsg/securityRules/FTP'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_SCCM_VM1_nsg_name'), '/', parameters('securityRules_FTP_name'))]",
+            "apiVersion": "2017-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "21",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 1010,
+                "direction": "Inbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SCCM_VM1_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/networkSecurityGroups/SCCM-VM1-nsg/securityRules/FTPout'.",
+            "type": "Microsoft.Network/networkSecurityGroups/securityRules",
+            "name": "[concat(parameters('networkSecurityGroups_SCCM_VM1_nsg_name'), '/', parameters('securityRules_FTPout_name'))]",
+            "apiVersion": "2017-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "protocol": "TCP",
+                "sourcePortRange": "*",
+                "destinationPortRange": "21",
+                "sourceAddressPrefix": "*",
+                "destinationAddressPrefix": "*",
+                "access": "Allow",
+                "priority": 100,
+                "direction": "Outbound",
+                "sourcePortRanges": [],
+                "destinationPortRanges": [],
+                "sourceAddressPrefixes": [],
+                "destinationAddressPrefixes": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/networkSecurityGroups', parameters('networkSecurityGroups_SCCM_VM1_nsg_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Network/virtualNetworks/SCCM-vnet/subnets/default'.",
+            "type": "Microsoft.Network/virtualNetworks/subnets",
+            "name": "[concat(parameters('virtualNetworks_SCCM_vnet_name'), '/', parameters('subnets_default_name'))]",
+            "apiVersion": "2017-10-01",
+            "scale": null,
+            "properties": {
+                "provisioningState": "Succeeded",
+                "addressPrefix": "10.0.16.0/24",
+                "serviceEndpoints": []
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Network/virtualNetworks', parameters('virtualNetworks_SCCM_vnet_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/auditingPolicies",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('auditingPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "fullAuditLogsTableName": "SQLDBAuditLogsSql1db",
+                "auditLogsTableName": "Sql1db",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/backupLongTermRetentionVaults/RegisteredVault'.",
+            "type": "Microsoft.Sql/servers/backupLongTermRetentionVaults",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('backupLongTermRetentionVaults_RegisteredVault_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "recoveryServicesVaultResourceId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/databases/master'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,system",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('databases_master_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "databaseId": "8ba3ea4e-527d-47bf-8b1e-1aca04535690",
+                "edition": "System",
+                "status": "Online",
+                "serviceLevelObjective": "System0",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "32212254720",
+                "creationDate": "2018-02-22T08:32:11.967Z",
+                "currentServiceObjectiveId": "29dd7459-4a7c-4e56-be22-f0adda49440d",
+                "requestedServiceObjectiveId": "29dd7459-4a7c-4e56-be22-f0adda49440d",
+                "requestedServiceObjectiveName": "System0",
+                "sampleName": null,
+                "defaultSecondaryLocation": "West US",
+                "earliestRestoreDate": null,
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('firewallRules_AllowAllWindowsAzureIps_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/encryptionProtector/current'.",
+            "type": "Microsoft.Sql/servers/encryptionProtector",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('encryptionProtector_current_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyName": "ServiceManaged",
+                "serverKeyType": "ServiceManaged"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/keys/ServiceManaged'.",
+            "type": "Microsoft.Sql/servers/keys",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('keys_ServiceManaged_name'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyType": "[parameters('keys_ServiceManaged_name')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/databases/master/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('databases_master_name'), '/', parameters('auditingPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsSql1dbMaster",
+                "auditLogsTableName": "Sql1dbMaster",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db_name'), parameters('databases_master_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/databases/master/backupLongTermRetentionPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('databases_master_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "state": "Disabled",
+                "recoveryServicesBackupPolicyResourceId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db_name'), parameters('databases_master_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/databases/master/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('databases_master_name'), '/', parameters('geoBackupPolicies_Default_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db_name'), parameters('databases_master_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db/databases/master/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_sql1_db_name'), '/', parameters('databases_master_name'), '/', parameters('transparentDataEncryption_current_name'))]",
+            "apiVersion": "2014-04-01",
+            "location": "East US",
+            "scale": null,
+            "properties": {
+                "status": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db_name'), parameters('databases_master_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/auditingPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('auditingPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "fullAuditLogsTableName": "SQLDBAuditLogsSql1db1",
+                "auditLogsTableName": "Sql1db1",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/backupLongTermRetentionVaults/RegisteredVault'.",
+            "type": "Microsoft.Sql/servers/backupLongTermRetentionVaults",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('backupLongTermRetentionVaults_RegisteredVault_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "recoveryServicesVaultResourceId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,user",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "databaseId": "6c9ed9a3-bfff-401b-bfa0-55503e07b93a",
+                "edition": "Basic",
+                "status": "Online",
+                "serviceLevelObjective": "Basic",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "2147483648",
+                "creationDate": "2018-02-22T08:52:09.833Z",
+                "currentServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveName": "Basic",
+                "sampleName": null,
+                "defaultSecondaryLocation": "East US",
+                "earliestRestoreDate": "2018-02-22T09:22:44.05Z",
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/master'.",
+            "type": "Microsoft.Sql/servers/databases",
+            "kind": "v12.0,system",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_master_name_1'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "databaseId": "298ad2f4-d326-4f7c-b079-fc635eb8fca8",
+                "edition": "Basic",
+                "status": "Online",
+                "serviceLevelObjective": "Basic",
+                "collation": "SQL_Latin1_General_CP1_CI_AS",
+                "maxSizeBytes": "2147483648",
+                "creationDate": "2018-02-22T08:51:11.867Z",
+                "currentServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveId": "dd6d99bb-f193-4ec1-86f2-43d3bccbc49c",
+                "requestedServiceObjectiveName": "Basic",
+                "sampleName": null,
+                "defaultSecondaryLocation": "East US",
+                "earliestRestoreDate": null,
+                "elasticPoolName": null,
+                "containmentState": 2,
+                "readScale": "Disabled",
+                "failoverGroupId": null,
+                "zoneRedundant": false,
+                "isUpgradeRequested": false
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/firewallRules/AllowAllWindowsAzureIps'.",
+            "type": "Microsoft.Sql/servers/firewallRules",
+            "kind": "v12.0",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('firewallRules_AllowAllWindowsAzureIps_name_1'))]",
+            "apiVersion": "2014-04-01-preview",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "startIpAddress": "0.0.0.0",
+                "endIpAddress": "0.0.0.0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/encryptionProtector/current'.",
+            "type": "Microsoft.Sql/servers/encryptionProtector",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('encryptionProtector_current_name_1'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyName": "ServiceManaged",
+                "serverKeyType": "ServiceManaged"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/keys/ServiceManaged'.",
+            "type": "Microsoft.Sql/servers/keys",
+            "kind": "servicemanaged",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('keys_ServiceManaged_name_1'))]",
+            "apiVersion": "2015-05-01-preview",
+            "scale": null,
+            "properties": {
+                "serverKeyType": "[parameters('keys_ServiceManaged_name_1')]"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/advisors/CreateIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('advisors_CreateIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/advisors/DropIndex'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('advisors_DropIndex_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/advisors/DbParameterization'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('advisors_DbParameterization_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/advisors/ForceLastGoodPlan'.",
+            "type": "Microsoft.Sql/servers/databases/advisors",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('advisors_ForceLastGoodPlan_name'))]",
+            "apiVersion": "2014-04-01",
+            "scale": null,
+            "properties": {
+                "autoExecuteValue": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('auditingPolicies_Default_name_4'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsSql1db1Sqldb1",
+                "auditLogsTableName": "Sql1db1Sqldb1",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/backupLongTermRetentionPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('backupLongTermRetentionPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "state": "Disabled",
+                "recoveryServicesBackupPolicyResourceId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('geoBackupPolicies_Default_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/SQL-DB1/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_SQL_DB1_name'), '/', parameters('transparentDataEncryption_current_name_2'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "status": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_SQL_DB1_name'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/master/auditingPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/auditingPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_master_name_1'), '/', parameters('auditingPolicies_Default_name_3'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "auditingState": "New",
+                "eventTypesToAudit": "PlainSQL_Success,PlainSQL_Failure,ParameterizedSQL_Success,ParameterizedSQL_Failure,StoredProcedure_Success,StoredProcedure_Failure,Login_Success,Login_Failure,TransactionManagement_Success,TransactionManagement_Failure",
+                "storageAccountName": null,
+                "storageAccountKey": null,
+                "storageAccountSecondaryKey": null,
+                "storageTableEndpoint": null,
+                "storageAccountResourceGroupName": null,
+                "storageAccountSubscriptionId": null,
+                "useServerDefault": "Enabled",
+                "fullAuditLogsTableName": "SQLDBAuditLogsSql1db1Master",
+                "auditLogsTableName": "Sql1db1Master",
+                "retentionDays": "0"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_master_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/master/backupLongTermRetentionPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/backupLongTermRetentionPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_master_name_1'), '/', parameters('backupLongTermRetentionPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "state": "Disabled",
+                "recoveryServicesBackupPolicyResourceId": null
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_master_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/master/geoBackupPolicies/Default'.",
+            "type": "Microsoft.Sql/servers/databases/geoBackupPolicies",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_master_name_1'), '/', parameters('geoBackupPolicies_Default_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "state": "Enabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_master_name_1'))]"
+            ]
+        },
+        {
+            "comments": "Generalized from resource: '/subscriptions/734372bd-5c2b-4753-aaf9-487b6fedccb2/resourceGroups/SCCM/providers/Microsoft.Sql/servers/sql1-db1/databases/master/transparentDataEncryption/current'.",
+            "type": "Microsoft.Sql/servers/databases/transparentDataEncryption",
+            "name": "[concat(parameters('servers_sql1_db1_name'), '/', parameters('databases_master_name_1'), '/', parameters('transparentDataEncryption_current_name_1'))]",
+            "apiVersion": "2014-04-01",
+            "location": "West US",
+            "scale": null,
+            "properties": {
+                "status": "Disabled"
+            },
+            "dependsOn": [
+                "[resourceId('Microsoft.Sql/servers', parameters('servers_sql1_db1_name'))]",
+                "[resourceId('Microsoft.Sql/servers/databases', parameters('servers_sql1_db1_name'), parameters('databases_master_name_1'))]"
+            ]
+        }
+    ]
+}

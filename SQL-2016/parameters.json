@@ -1,0 +1,105 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "location": {
+            "value": "eastus"
+        },
+        "virtualMachineName": {
+            "value": "SCCM-VM"
+        },
+        "virtualMachineSize": {
+            "value": "Standard_E4s_v3"
+        },
+        "adminUsername": {
+            "value": "SCCM Admin"
+        },
+        "virtualNetworkName": {
+            "value": "SCCM-New-vnet"
+        },
+        "networkInterfaceName": {
+            "value": "sccm-vm460"
+        },
+        "networkSecurityGroupName": {
+            "value": "SCCM-VM-nsg"
+        },
+        "adminPassword": {
+            "value": null
+        },
+        "diagnosticsStorageAccountName": {
+            "value": "sccmnewdiag432"
+        },
+        "diagnosticsStorageAccountType": {
+            "value": "Standard_LRS"
+        },
+        "diagnosticsStorageAccountId": {
+            "value": "Microsoft.Storage/storageAccounts/sccmnewdiag432"
+        },
+        "addressPrefix": {
+            "value": "10.0.17.0/24"
+        },
+        "subnetName": {
+            "value": "default"
+        },
+        "subnetPrefix": {
+            "value": "10.0.17.0/24"
+        },
+        "publicIpAddressName": {
+            "value": "SCCM-VM-ip"
+        },
+        "publicIpAddressType": {
+            "value": "Dynamic"
+        },
+        "publicIpAddressSku": {
+            "value": "Basic"
+        },
+        "sqlConnectivityType": {
+            "value": "Private"
+        },
+        "sqlPortNumber": {
+            "value": 1433
+        },
+        "sqlStorageDisksCount": {
+            "value": 1
+        },
+        "sqlStorageWorkloadType": {
+            "value": "GENERAL"
+        },
+        "sqlStorageDisksConfigurationType": {
+            "value": "NEW"
+        },
+        "sqlStorageStartingDeviceId": {
+            "value": 2
+        },
+        "sqlStorageDeploymentToken": {
+            "value": 15044
+        },
+        "sqlAutopatchingDayOfWeek": {
+            "value": "Sunday"
+        },
+        "sqlAutopatchingStartHour": {
+            "value": "2"
+        },
+        "sqlAutopatchingWindowDuration": {
+            "value": "60"
+        },
+        "sqlAutobackupRetentionPeriod": {
+            "value": "30"
+        },
+        "backupSystemDbs": {
+            "value": "true"
+        },
+        "backupScheduleType": {
+            "value": "Automated"
+        },
+        "sqlAuthenticationLogin": {
+            "value": "SQL-Admin"
+        },
+        "sqlAuthenticationPassword": {
+            "value": null
+        },
+        "rServicesEnabled": {
+            "value": "false"
+        }
+    }
+}
